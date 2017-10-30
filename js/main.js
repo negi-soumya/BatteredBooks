@@ -21,4 +21,9 @@ $(document).ready(function(){
    							 } 
  			      });
 });
+//tootip initialize
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
 

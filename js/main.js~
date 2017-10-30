@@ -5,7 +5,7 @@
 $(document).ready(function(){
     
         $(".loaded").fadeOut();    
-        $(".preloader").delay(1000).fadeOut();
+        $(".preloader").delay(800).fadeOut();
     });
 
 
@@ -20,5 +20,13 @@ $(document).ready(function(){
         						 window.location.hash = hash;});
    							 } 
  			      });
+});
+//tootip initialize
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+$(document).ready(function(){
+    $('#1').click(funtion(){header('register.html');});
 });
 

@@ -2,7 +2,7 @@
 <html>
   <head>
     
-    <title>Welcome to Battered Books!</title>
+    <title>Register_BatteredBooks</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +17,7 @@
   </head>
   
   <body data-spy="scroll" data-target="#navmenu">
-  
-    <div class='preloader'><div class='loaded'>&nbsp;</div></div> 
+      
       <header id="main_menu" class="header"> <!--navigation bar-->
             <div class="main_menu_bg navbar-fixed-top"><!--to customize main menu-->
                 <div class="container"><!--to leave space on sides-->
@@ -27,13 +26,13 @@
                             <nav class="navbar navbar-default" id="navmenu">
                                 <div class="container-fluid">
                                     <div class="navbar-header">
-                                        <a class="navbar-brand" href="#"><img src="images/logo.png" alt="Battered books!" /></a>
+                                        <a class="navbar-brand" href="first.html"><img src="images/logo.png" alt="Battered books!" /></a>
                                     </div>
 
                                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                         <ul class="nav navbar-nav navbar-right">
                                             
-                                            <li><a href="#support">Support</a></li>
+                                            <li class="active"><a href="#support">Support</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -45,45 +44,70 @@
 
             </div>
         </header> <!--End of header -->
-        
-        <section id="home" class="home"> <!--home secton-->
+      
+      <section id="home" class="home_register"> <!--home secton-->
             <div class="home-overlay-fluid">
                 <div class="container">
                     <div class="row">
-                        <div class="main_slider_area">
-                            <div class="slider">
-                                <div class="single_slider">
-                                    <h2>HELLO!</h2>
-                                    <p>We have a lot of battered books...</p>
-                                    <p>Feel free to look around.&nbsp;&nbsp;<a href="#register_pane"><span class="glyphicon glyphicon-hand-down"></span></a></p>
-                                </div>
-                           </div>
+                        <div class="col-md-12">
+                            <div id="" class="browse_register single_slider" >
+                            	<p>Register with us</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="" class="browse_register single_slider" style="border-bottom:0px;">
+                                
+                            	<form name="register_form" method="post" action="">
+                            	    <table border=0 style="">
+                            	  
+					  <tr><td>&nbsp;</td></tr>
+					  <tr>
+					     <td>Username: </td>
+					     <td>&nbsp;</td>
+					     <td><input type="text" data-toggle="tooltip" data-placement="right" title="Use valid VIT registration no." name="user" value="" placeholder="Enter username" style="color:black;font-weight:normal;font-style:italic;" required> </td>
+					  </tr>
+					  <tr><td>&nbsp;</td></tr>
+					  <tr>
+					     <td>Password: </td>
+					     <td>&nbsp;</td>
+					     <td ><input type="password" data-toggle="tooltip" title="Min 6 characters,space not allowed" data-placement="right" name="pwd" value="" placeholder="Enter password" style="color:black;font-weight:normal;font-style:italic;" required>
+					     </td>
+					  </tr>
+					  <tr><td>&nbsp;</td></tr>
+					  <tr>
+					     <td>Room No.: </td>
+					     <td>&nbsp;</td>
+					     <td ><input type="number" name="room" value="" placeholder="Enter Room no." min="101" max="1550"  style="color:black;font-weight:normal;font-style:italic;" required>
+					     </td>
+					  </tr>
+					  <tr><td>&nbsp;</td></tr>
+					  <tr>
+					     <td>Block: </td>
+					     <td>&nbsp;</td>
+					     <td ><input type="radio" name="block" value="A" style="color:black;font-weight:normal;font-style:italic;" required>A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					     <input type="radio" name="block" value="BB" style="color:black;font-weight:normal;font-style:italic;" required>B (Boys) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					     <input type="radio" name="block" value="BG" style="color:black;font-weight:normal;font-style:italic;" required>B (Girls)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					     <input type="radio" name="block" value="C" style="color:black;font-weight:normal;font-style:italic;" required>C
+					     </td>
+					  </tr>
+					  <tr><td>&nbsp;</td></tr>
+					  <tr><td><input type="submit" id="reg" class="search" value="Register" style="color:#e84c3d;"></td>
+					      <td><input type="reset" class="search" value="Reset" style="color:#e84c3d;"></td>	
+					  </tr>
+		                    </table>
+                            	</form>
+                            	
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section><!-- End of home Section -->
-        
-        
-        
-        <section id="register_pane" class="register">
-            <div class="container-fullwidth">
-                <div class="row text-center">
-                    <div class="col-sm-6 col-xs-6 no-padding">
-                        <div class="single_register single_login">
-                            <a href="#login"data-toggle="modal">Login</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xs-6 no-padding">
-                        <div class="single_register">
-                            <a href="register.html">Register</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-                       
-        <section id="support" class="footer">
+      
+      <!--bottom of site, common to all-->
+      <section id="support" class="footer">
             <div class="container">
                 <div class="row footer_menu">
                     <div class="col-md-3">
@@ -111,7 +135,7 @@
 			<div class="row">
 				<div class="copyright">
 					<p >Made by <strong>Soumya Negi</strong> 2017. All Rights not Reserved <span class="glyphicon glyphicon-heart-empty"></span></p>
-					<a href="#home" style="float:right;padding:15px;"><span class="glyphicon glyphicon-menu-up" style="font-size:20px;"></span></a>
+					<a href="" style="float:right;padding:15px;"><span class="glyphicon glyphicon-menu-up" style="font-size:20px;"></span></a>
 				</div>
 				
 			</div>
@@ -151,47 +175,11 @@
 
 	   </div>
 	</div>
-	
-	<!--LOGIN modal-->
-        <div id="login" class="modal fade" role="dialog" tabindex="-1">
-	   <div class="modal-dialog">
-   	      	<div class="modal-content">
- 	    	   <div class="modal-header">
-	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
-	        	<h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Login (New user please <button type="button" onclick="location.href='register.html'" id="1" class="search"><font style="color:#e84c3d;font-weight:bold;">register</font></button> first )</h4>
-	     	   </div>
-	     	   <div class="modal-body">
-	       		 <form name="login_form" action="login.php" method="post">
-				<table border=0>
-				  <tr>
-				     <td>Username: </td>
-				     <td><input type="text" name="user" value="" placeholder="e.g. 16BCE1076" required> </td>
-				  </tr>
-				  <tr>
-				     <td>Password: </td>
-				     <td ><input type="password" name="pwd" value="" placeholder="Your password"required>
-				     </td>	
-				  </tr>
-				  <tr><td>&nbsp;</td></tr>
-				  <tr><td><input type="submit" value="Login"></td>
-				      <td><input type="reset" value="Reset"></td>	
-				  </tr>
-				</table>
-	
-			  </form>
- 	     	   </div>
- 	     	   
-	    	</div>
-
-	   </div>
-	</div>
-        
-        
- <!--   <script src="./js/bootstrap.js"></script> --> <!--use either bootsrap.js or bootstrap.min.js..modal was disappearing-->
+  
+  <!--   <script src="./js/bootstrap.js"></script> --> <!--use either bootsrap.js or bootstrap.min.js..modal was disappearing-->
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/npm.js"></script> 
     <script src="./js/main.js"></script>
     
   </body>
 </html>
-
