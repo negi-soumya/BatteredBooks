@@ -1,3 +1,6 @@
+<?php
+ session_start();
+?>
 <!doctype html>
 <html>
   <head>
@@ -13,7 +16,7 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
       
-    <script src="/opt/lampp/htdocs/jquery-3.2.1.js"></script>
+    <script src="./js/jquery-3.2.1.js"></script>
   </head>
   
   <body data-spy="scroll" data-target="#navmenu">
@@ -47,7 +50,7 @@
         </header> <!--End of header -->
         
         <section id="home" class="home"> <!--home secton-->
-            <div class="home-overlay-fluid">
+            <div class="home-overlay-first">
                 <div class="container">
                     <div class="row">
                         <div class="main_slider_area">
@@ -155,26 +158,27 @@
 	<!--LOGIN modal-->
         <div id="login" class="modal fade" role="dialog" tabindex="-1">
 	   <div class="modal-dialog">
-   	      	<div class="modal-content">
+   	      	<div id="login_modal" class="modal-content">
  	    	   <div class="modal-header">
 	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
 	        	<h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Login (New user please <button type="button" onclick="location.href='register.html'" id="1" class="search"><font style="color:#e84c3d;font-weight:bold;">register</font></button> first )</h4>
 	     	   </div>
 	     	   <div class="modal-body">
-	       		 <form name="login_form" action="login.php" method="post">
+	       		 <form name="login_form" id="login_form" action="" method="post">
 				<table border=0>
 				  <tr>
 				     <td>Username: </td>
-				     <td><input type="text" name="user" value="" placeholder="e.g. 16BCE1076" required> </td>
+				     <td><input type="text" name="USR" value=""  placeholder="e.g. 16BCE1076" required> </td>
 				  </tr>
 				  <tr>
 				     <td>Password: </td>
-				     <td ><input type="password" name="pwd" value="" placeholder="Your password"required>
+				     <td ><input type="password" name="PWD" value="" placeholder="Your password"required>
 				     </td>	
 				  </tr>
 				  <tr><td>&nbsp;</td></tr>
 				  <tr><td><input type="submit" value="Login"></td>
-				      <td><input type="reset" value="Reset"></td>	
+				      <td><input type="reset" value="Reset"></td>
+				      <td id="login_error" style="font-style:italic;color:red;"><td>	
 				  </tr>
 				</table>
 	

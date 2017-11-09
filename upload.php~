@@ -1,0 +1,30 @@
+<?php
+session_start();
+
+$v1=$_POST['ISBN'];
+$v2=$_POST['TITLE'];
+$v3=$_POST['AUT'];
+$v4=$_POST['CAT'];
+$v5=$_POST['CP'];
+$v6=$_POST['SP'];
+$v7=$_POST['AGE'];
+$v8=$_SESSION['CUR_USR'];
+
+$connect= mysqli_connect("localhost","root","crack19","BATBOOKS");
+if(!$connect)
+	echo "Can't connect to database".mysqli_error();
+$q="select count(*) from BOOK where USR='$v8'";
+$sql=mysqli_query($connect,$q);
+while($row=mysqli_fetch_assoc($sql))
+{
+     if($row['count(*)']>=5)
+     	echo "*You have already uploaded 5 books. New upload not allowed!";exit();
+}
+$q="insert into BOOK (ISBN,TITLE,AUT,CAT,CP,SP,AGE,USR) values('$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8')";
+$sql=mysqli_query($connect,$q);
+if(!$sql)
+	echo "Data not added to table BOOK".mysqli_error($connect);
+ mysqli_close($connect);
+ echo "ok";
+ exit();
+?>

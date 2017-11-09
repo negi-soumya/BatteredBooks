@@ -105,13 +105,6 @@ body {
     background:transparent;
 }
 
-#act	{
-    background-color:transparent;
-    border:0px;
-    color:white;
-    background:transparent;
-}
-
 /* general*/
 img {
     -moz-user-select: none;
@@ -336,11 +329,6 @@ ul#inline_list  li>a{
 .home-overlay-fluid {
     background-color: rgba(0, 0, 0, 0.60);
     width: 100%;
-    padding: 200px 0px;
-}
-.home-overlay-first{
-    background-color: rgba(0, 0, 0, 0.60);
-    width: 100%;
     padding: 250px 0px;
 }
 .overlay-img {
@@ -372,14 +360,8 @@ ul#inline_list  li>a{
     background: url(../images/regbg.jpg) no-repeat 100% 100%;
     text-align: center;
 }
-
 .home_upload{
-    background: url(../images/shelf.jpg)  100% 100%;
-    text-align: center;
-}
-
-.home_profile{
-    background: url(../images/couch.jpg)  100% 100%;
+    background: url(../images/shelf.jpg) no-repeat 100% 100%;
     text-align: center;
 }
 
@@ -501,11 +483,4 @@ ul#inline_list  li>a{
 	min-height:100px;
 	padding:2.375rem;
 }
-#error{
- 	font-size:13px;
- 	color:red;
- 	padding-left:5em;
- 	font-weight:normal;
- 	font-family:arial;
- 	font-style:italic;
-}
+

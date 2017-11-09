@@ -1,3 +1,6 @@
+<?php
+ session_start();
+?>
 <!doctype html>
 <html>
   <head>
@@ -13,13 +16,13 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
       
-    <script src="/opt/lampp/htdocs/jquery-3.2.1.js"></script>
+    <script src="./js/jquery-3.2.1.js"></script>
   </head>
   
-  <body data-spy="scroll" data-target="#navmenu">
+  <body data-spy="scroll" data-target="#navmenu " >
       
-      <header id="main_menu" class="header"> <!--navigation bar-->
-            <div class="main_menu_bg navbar-fixed-top"><!--to customize main menu-->
+      <header id="main_menu" class="header "> <!--navigation bar-->
+            <div class="main_menu_bg navbar-fixed-top "><!--to customize main menu-->
                 <div class="container"><!--to leave space on sides-->
                     <div class="row">
                         <div class="nave_menu wow fadeInUp" data-wow-duration="1s">
@@ -34,6 +37,14 @@
                                             <li><a href="home.html">Home</a></li>
                                             <li class="active"><a href="#home_upload">Upload</a></li>
                                             <li><a href="#support">Support</a></li>
+                                            <li><button type="button" class="btn-lg btn search dropdown-toggle" value="" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench"></span></button>
+                                            	<ul id="act" class="dropdown-menu">
+  						  <li><a href="profile.html">Profile</a></li>
+  						  <li><a href="history.html">History</a></li>
+  						  <li class="divider"></li>
+  						  <li><a id="logout" href="logout.php">Logout</a></li>
+ 						 </ul>	
+                                            </li>
                                         </ul>
                                        <form class="navbar-form navbar-right search" name="book_search" method="post" action="">
      					    <div class="form-group">
@@ -66,27 +77,27 @@
                         <div class="col-md-12">
                             <div id="" class="browse_register single_slider" style="border-bottom:0px;">
                                 
-                            	<form name="register_form" method="post" action="">
+                            	<form id="upload_form" name="upload_form" method="post" action="">
                             	    <table border=0 style="">
                             	  
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
 					     <td>Book Title: </td>
 					     <td>&nbsp;</td>
-					     <td><input type="text" data-toggle="tooltip" data-placement="right" title="Enter full book title" name="title" value="" placeholder="Enter title" style="color:black;font-weight:normal;font-style:italic;" required> </td>
+					     <td><input type="text" data-toggle="tooltip" data-placement="right" title="Enter full book title" name="TITLE" value="" placeholder="Enter title" style="color:black;font-weight:normal;font-style:italic;" required> </td>
 					  </tr>
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
 					     <td>Author: </td>
 					     <td>&nbsp;</td>
-					     <td ><input type="text" data-toggle="tooltip" title="Enter name of author as printed on book" data-placement="right" name="auth" value="" placeholder="Enter password" style="color:black;font-weight:normal;font-style:italic;" required>
+					     <td ><input type="text" data-toggle="tooltip" title="Enter name of author as printed on book" data-placement="right" name="AUT" value="" placeholder="Enter Author " style="color:black;font-weight:normal;font-style:italic;" required>
 					     </td>
 					  </tr>
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
 					     <td>ISBN: </td>
 					     <td>&nbsp;</td>
-					     <td ><input type="text" name="isbn" value="" maxlength="13" minlength="13" data-toggle="tooltip" title="Enter valid 13-length ISBN " data-placement="right" placeholder="Enter ISBN-13" style="color:black;font-weight:normal;font-style:italic;" required>
+					     <td ><input type="text" name="ISBN" value="" maxlength="13" data-toggle="tooltip" title="Enter valid 13-length ISBN " data-placement="right" placeholder="Enter ISBN-13" style="color:black;font-weight:normal;font-style:italic;" required>
 					     </td>
 					  </tr>
 					  <tr><td>&nbsp;</td></tr>
@@ -96,13 +107,13 @@
 					     <td >
 					     <table border=0>
 					     <tr><td>
-					     <input type="radio" name="cat" value="AS" style="color:black;font-weight:normal;font-style:italic;" required>Applied Sciences&nbsp;</td><td>
-					     <input type="radio" name="cat" value="CSE" style="color:black;font-weight:normal;font-style:italic;" required>Computer Science&nbsp;</td><td>
-					     <input type="radio" name="cat" value="E" style="color:black;font-weight:normal;font-style:italic;" required>Electrical</td>      </tr>
+					     <input type="radio" name="CAT" value="AS" style="color:black;font-weight:normal;font-style:italic;" required>Applied Sciences&nbsp;</td><td>
+					     <input type="radio" name="CAT" value="CSE" style="color:black;font-weight:normal;font-style:italic;" required>Computer Science&nbsp;</td><td>
+					     <input type="radio" name="CAT" value="E" style="color:black;font-weight:normal;font-style:italic;" required>Electrical</td>      </tr>
 					     <tr><td>
-					     <input type="radio" name="cat" value="M" style="color:black;font-weight:normal;font-style:italic;" required>Mechanical</td><td>
-					     <input type="radio" name="cat" value="C" style="color:black;font-weight:normal;font-style:italic;" required>Civil</td><td>
-					     <input type="radio" name="cat" value="O" style="color:black;font-weight:normal;font-style:italic;" required>Others</td>
+					     <input type="radio" name="CAT" value="M" style="color:black;font-weight:normal;font-style:italic;" required>Mechanical</td><td>
+					     <input type="radio" name="CAT" value="C" style="color:black;font-weight:normal;font-style:italic;" required>Civil</td><td>
+					     <input type="radio" name="CAT" value="O" style="color:black;font-weight:normal;font-style:italic;" required>Others</td>
 					     </tr>
 					     </table>
 					  </tr>
@@ -110,14 +121,14 @@
 					  <tr>
 					     <td>Original Cost Price (in RS): </td>
 					     <td>&nbsp;</td>
-					     <td ><input type="text" title="Give the current market price, edition etc." data-toggle="tooltip" data-placement="right" name="orig" value="" placeholder="Enter price" style="color:black;font-weight:normal;font-style:italic;" required>
+					     <td ><input type="text" title="Give the current market price, edition etc." data-toggle="tooltip" data-placement="right" name="CP" value="" placeholder="Enter price" style="color:black;font-weight:normal;font-style:italic;" required>
 					     </td>
 					  </tr>
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
 					     <td>Resale Price (in Rs): </td>
 					     <td>&nbsp;</td>
-					     <td ><input type="text" title="Tip: Keep the price as less than original price as possible for more chances of sale" data-toggle="tooltip" data-placement="right" name="resale" value="" placeholder="Enter price" style="color:black;font-weight:normal;font-style:italic;" required>
+					     <td ><input type="text" title="Tip: Keep the price as less than original price as possible for more chances of sale" data-toggle="tooltip" data-placement="right" name="SP" value="" placeholder="Enter price" style="color:black;font-weight:normal;font-style:italic;" required>
 					     </td>
 					  </tr>
 					  <tr><td>&nbsp;</td></tr>
@@ -125,13 +136,14 @@
 					  <tr>
 					     <td>How old is the book? </td>
 					     <td>&nbsp;</td>
-					     <td ><input type="text" name="age" title="Tip: GIve in terms of months,days,years. P.S. This message will as it is be displayed to customers " data-toggle="tooltip" data-placement="right" value="" placeholder="Enter age of book" style="color:black;font-weight:normal;font-style:italic;" required>
+					     <td ><input type="text" name="AGE" title="Tip: GIve in terms of months,days,years. P.S. This message will as it is be displayed to customers " data-toggle="tooltip" data-placement="right" value="" placeholder="Enter age of book" style="color:black;font-weight:normal;font-style:italic;" required>
 					     </td>
 					  </tr>
 					  <tr><td>&nbsp;</td></tr>
 					  <tr><td>&nbsp;</td></tr>
-					  <tr><td><input type="submit" id="reg" class="search" value="Register" style="color:#e84c3d;"></td>
+					  <tr><td><input type="submit" id="upload" class="search" value="Upload" style="color:#e84c3d;"></td>
 					      <td><input type="reset" class="search" value="Reset" style="color:#e84c3d;"></td>	
+					      <td id="upload_error" style="font-family:arial;color:red;font-style:italic;"></td>
 					  </tr>
 		                    </table>
                             	</form>

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
       
-    <script src="/opt/lampp/htdocs/jquery-3.2.1.js"></script>
+    <script src="./js/jquery-3.2.1.js"></script>
   </head>
   
   <body data-spy="scroll" data-target="#navmenu">
@@ -26,13 +26,13 @@
                             <nav class="navbar navbar-default" id="navmenu">
                                 <div class="container-fluid">
                                     <div class="navbar-header">
-                                        <a class="navbar-brand" href="first.html"><img src="images/logo.png" alt="Battered books!" /></a>
+                                        <a class="navbar-brand" id="logo1" href="first.html"><img src="images/logo.png" alt="Battered books!" /></a>
                                     </div>
 
                                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                         <ul class="nav navbar-nav navbar-right">
                                             
-                                            <li class="active"><a href="#support">Support</a></li>
+                                            <li ><a href="#support">Support</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -52,6 +52,7 @@
                         <div class="col-md-12">
                             <div id="" class="browse_register single_slider" >
                             	<p>Register with us</p>
+                            	
                             </div>
                         </div>
                     </div>
@@ -59,43 +60,54 @@
                         <div class="col-md-12">
                             <div id="" class="browse_register single_slider" style="border-bottom:0px;">
                                 
-                            	<form name="register_form" method="post" action="">
+                            	<form name="register_form" id="register_form" method="post" action="">
                             	    <table border=0 style="">
                             	  
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
 					     <td>Username: </td>
 					     <td>&nbsp;</td>
-					     <td><input type="text" data-toggle="tooltip" data-placement="right" title="Use valid VIT registration no." name="user" value="" placeholder="Enter username" style="color:black;font-weight:normal;font-style:italic;" required> </td>
+					     <td><input type="text" data-toggle="tooltip" maxlength="9" data-placement="right" title="Use valid VIT registration no.(You cannot change your username)" name="USR" value="" placeholder="Enter username" style="color:black;font-weight:normal;font-style:italic;" required> </td>
 					  </tr>
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
 					     <td>Password: </td>
 					     <td>&nbsp;</td>
-					     <td ><input type="password" data-toggle="tooltip" title="Min 6 characters,space not allowed" data-placement="right" name="pwd" value="" placeholder="Enter password" style="color:black;font-weight:normal;font-style:italic;" required>
+					     <td ><input type="password" data-toggle="tooltip" title="Min 6 & Max 16 characters,space not allowed" data-placement="right" name="PWD" value="" minlength="6" maxlength="16" placeholder="Enter password" style="color:black;font-weight:normal;font-style:italic;" required>
+					     </td>
+					  </tr>
+					  <tr><td>&nbsp;</td></tr>
+					  <tr>
+					     <td>Email Id: </td>
+					     <td>&nbsp;</td>
+					     <td ><input type="email" data-toggle="tooltip" title="Id will be used for any communication" data-placement="right" name="EID" value="" placeholder="Enter Email Id" style="color:black;font-weight:normal;font-style:italic;" required>
 					     </td>
 					  </tr>
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
 					     <td>Room No.: </td>
 					     <td>&nbsp;</td>
-					     <td ><input type="number" name="room" value="" placeholder="Enter Room no." min="101" max="1550"  style="color:black;font-weight:normal;font-style:italic;" required>
+					     <td ><input type="number" name="ROOM" value="" placeholder="Enter Room no." min="101" max="1550"  style="color:black;font-weight:normal;font-style:italic;" required>
 					     </td>
 					  </tr>
+					  
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
 					     <td>Block: </td>
 					     <td>&nbsp;</td>
-					     <td ><input type="radio" name="block" value="A" style="color:black;font-weight:normal;font-style:italic;" required>A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					     <input type="radio" name="block" value="BB" style="color:black;font-weight:normal;font-style:italic;" required>B (Boys) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					     <input type="radio" name="block" value="BG" style="color:black;font-weight:normal;font-style:italic;" required>B (Girls)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					     <input type="radio" name="block" value="C" style="color:black;font-weight:normal;font-style:italic;" required>C
+					     <td ><input type="radio" name="BLOCK" value="A" style="color:black;font-weight:normal;font-style:italic;" required>A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					     <input type="radio" name="BLOCK" value="B (Boys)" style="color:black;font-weight:normal;font-style:italic;" required>B (Boys) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					     <input type="radio" name="BLOCK" value="B (Girls)" style="color:black;font-weight:normal;font-style:italic;" required>B (Girls)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					     <input type="radio" name="BLOCK" value="C" style="color:black;font-weight:normal;font-style:italic;" required>C
 					     </td>
 					  </tr>
+					  
 					  <tr><td>&nbsp;</td></tr>
 					  <tr><td><input type="submit" id="reg" class="search" value="Register" style="color:#e84c3d;"></td>
 					      <td><input type="reset" class="search" value="Reset" style="color:#e84c3d;"></td>	
+					      <td id="error_register" style="font-family:arial;color:red;font-style:italic;"></td>
 					  </tr>
+					  
 		                    </table>
                             	</form>
                             	
@@ -112,7 +124,7 @@
                 <div class="row footer_menu">
                     <div class="col-md-3">
                             <div>
-                                <a href=""><img src="images/logo.png" alt="Battered books!" style="hover:left;" /></a>
+                                <a id="logo2" href=""><img src="images/logo.png" alt="Battered books!" style="hover:left;" /></a>
                             </div>
                         </div>
                         <div class="col-md-9">
