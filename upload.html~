@@ -1,3 +1,6 @@
+<?php
+ session_start();
+?>
 <!doctype html>
 <html>
   <head>
@@ -34,18 +37,18 @@
                                             <li><a href="home.html">Home</a></li>
                                             <li class="active"><a href="#home_upload">Upload</a></li>
                                             <li><a href="#support">Support</a></li>
-                                            <li><button type="button" class="btn-lg btn search dropdown-toggle" value="" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench"></span></button>
+                                            <li><button type="button" class="btn-lg btn search dropdown-toggle" value="" data-toggle="dropdown"><span class="glyphicon glyphicon-cog white"></span></button>
                                             	<ul id="act" class="dropdown-menu">
-  						  <li><a href="profile.html">Profile</a></li>
-  						  <li><a href="history.html">History</a></li>
+  						  <li><a href="profile.php"><span class="glyphicon glyphicon-user">&nbsp;Profile<span</a></li>
+  						  <li><a href="history.php"><span class="glyphicon glyphicon-header">&nbsp;History</span></a></li>
+  						  <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart">&nbsp;Shopping Cart<span></a></li>
   						  <li class="divider"></li>
-  						  <li><a id="logout" href="logout.php">Logout</a></li>
+  						  <li><a id="logout" href="logout.php"><span class="glyphicon glyphicon-log-out">&nbsp;Logout</span></a></li>
  						 </ul>	
-                                            </li>
                                         </ul>
                                        <form class="navbar-form navbar-right search" name="book_search" method="post" action="">
      					    <div class="form-group">
-      					    	<input type="text" class="form-control search" placeholder="Search by ">
+      					    	<input type="text" name="ISBN" maxlength=13 class="form-control search" placeholder="Search by ">
      					    </div>
     					    <button type="submit" class="btn navbar-btn search" value="" ><span class="glyphicon glyphicon-search"></span></button>
  					</form>
@@ -104,13 +107,13 @@
 					     <td >
 					     <table border=0>
 					     <tr><td>
-					     <input type="radio" name="CAT" value="AS" style="color:black;font-weight:normal;font-style:italic;" required>Applied Sciences&nbsp;</td><td>
-					     <input type="radio" name="CAT" value="CSE" style="color:black;font-weight:normal;font-style:italic;" required>Computer Science&nbsp;</td><td>
-					     <input type="radio" name="CAT" value="E" style="color:black;font-weight:normal;font-style:italic;" required>Electrical</td>      </tr>
+					     <input type="radio" name="CAT" value="Applied Sciences" style="color:black;font-weight:normal;font-style:italic;" required>Applied Sciences&nbsp;</td><td>
+					     <input type="radio" name="CAT" value="Computer Science" style="color:black;font-weight:normal;font-style:italic;" required>Computer Science&nbsp;</td><td>
+					     <input type="radio" name="CAT" value="Electrical" style="color:black;font-weight:normal;font-style:italic;" required>Electrical</td>      </tr>
 					     <tr><td>
-					     <input type="radio" name="CAT" value="M" style="color:black;font-weight:normal;font-style:italic;" required>Mechanical</td><td>
-					     <input type="radio" name="CAT" value="C" style="color:black;font-weight:normal;font-style:italic;" required>Civil</td><td>
-					     <input type="radio" name="CAT" value="O" style="color:black;font-weight:normal;font-style:italic;" required>Others</td>
+					     <input type="radio" name="CAT" value="Mechanical" style="color:black;font-weight:normal;font-style:italic;" required>Mechanical</td><td>
+					     <input type="radio" name="CAT" value="Civil" style="color:black;font-weight:normal;font-style:italic;" required>Civil</td><td>
+					     <input type="radio" name="CAT" value="Other" style="color:black;font-weight:normal;font-style:italic;" required>Other</td>
 					     </tr>
 					     </table>
 					  </tr>

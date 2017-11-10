@@ -53,7 +53,7 @@ $(document).ready(function(){
 					{ 
 					 					 
 					 alert("You have successfully registered with us!");
-					 window.location.href="home.html";
+					 window.location.href="first.html";
 					}
 				else
 					$("#error_register").html(d);
@@ -107,3 +107,25 @@ $(document).ready(function(){
 		});
 	});
 });
+
+//order place
+$(document).ready(function(){
+	$("#cart").submit(function(e){
+		e.preventDefault();
+		
+		$.ajax({
+			url:"order.php",
+			
+			dataType:"text",
+			type:"POST",
+			success:function(data){
+				if($.trim(data)==="ok")
+					{ alert("Your order has been successfully placed!");window.location.href="home.html"; }
+				else
+					alert("Unable to place order.\nPlease try again after some time");
+			}
+		});
+	});
+});
+
+

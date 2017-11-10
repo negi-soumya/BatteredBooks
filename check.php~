@@ -1,3 +1,4 @@
+<!--
 <html>
 <head>
 <script type="text/javascript">
@@ -12,9 +13,10 @@ fucntion f()
 
 </body>
 </html>
+-->
 <?php
-
-echo "ok";
+$A='23';
+echo "ok<h1>teh$A</h1>";
 exit();
 
 ?>

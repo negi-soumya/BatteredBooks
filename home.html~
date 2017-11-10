@@ -1,3 +1,6 @@
+<?php
+ session_start();
+?>
 <!doctype html>
 <html>
   <head>
@@ -35,18 +38,19 @@
                                             <li class="active"><a href="#home">Home</a></li>
                                             <li><a href="upload.html">Upload</a></li>
                                             <li><a href="#support">Support</a></li>
-                                            <li><button type="button" class="btn-lg btn search dropdown-toggle" value="" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench"></span></button>
+                                            <li><button type="button" class="btn-lg btn search dropdown-toggle" value="" data-toggle="dropdown"><span class="glyphicon glyphicon-cog white"></span></button>
                                             	<ul id="act" class="dropdown-menu">
-  						  <li><a href="profile.html">Profile</a></li>
-  						  <li><a href="history.html">History</a></li>
+  						  <li><a href="profile.php"><span class="glyphicon glyphicon-user">&nbsp;Profile<span</a></li>
+  						  <li><a href="history.php"><span class="glyphicon glyphicon-header">&nbsp;History</span></a></li>
+  						  <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart">&nbsp;Shopping Cart<span></a></li>
   						  <li class="divider"></li>
-  						  <li><a id="logout" href="logout.php">Logout</a></li>
+  						  <li><a id="logout" href="logout.php"><span class="glyphicon glyphicon-log-out">&nbsp;Logout</span></a></li>
  						 </ul>	
                                             </li>
                                         </ul>
-                                       <form class="navbar-form navbar-right search" name="book_search" method="post" action="">
+                                       <form class="navbar-form navbar-right search" name="book_search" method="post" action="search.php">
      					    <div class="form-group">
-      					    	<input type="text" class="form-control search" placeholder="Search by ">
+      					    	<input type="text" maxlength=13 name="ISBN" class="form-control search" placeholder="Search by ISBN">
      					    </div>
     					    <button type="submit" class="btn navbar-btn search" value="" ><span class="glyphicon glyphicon-search"></span></button>
  					</form>
@@ -68,12 +72,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div id="" class="browse_l single_slider" style="border-right:2px solid white;">
-                            	<a href="" ><p>Applied Science</p></a>
+                            	<a href="app.php" ><p>Applied Science</p></a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div id="" class="browse_r single_slider" style="border-left:2px solid #e84c3d;">
-                                <a href="" ><p>Computer Sciences</p></a>
+                                <a href="cse.php" ><p>Computer Sciences</p></a>
                             </div>
                         </div>
                     </div>
@@ -81,12 +85,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div id="" class="browse_l single_slider" style="border-right:2px solid #e84c3d">
-                            	<a href="" ><p>Electrical</p></a>
+                            	<a href="electrical.php" ><p>Electrical</p></a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div id="" class="browse_r single_slider" style="border-left:2px solid white;">
-                                <a href="" ><p>Mechanical</p></a>
+                                <a href="mech.php" ><p>Mechanical</p></a>
                             </div>
                         </div>
                     </div>
@@ -94,12 +98,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div id="" class="browse_l single_slider" style="border-right:2px solid white">
-                            	<a href="" ><p>Civil</p></a>
+                            	<a href="civil.php" ><p>Civil</p></a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div id="" class="browse_r single_slider" style="border-left:2px solid #e84c3d;">
-                                <a href="" ><p>Fiction</p></a>
+                                <a href="other.php" ><p>Other</p></a>
                             </div>
                         </div>
                     </div>
@@ -121,7 +125,7 @@
                         <div class="col-md-9">
                             <div>
                                 <ul id="inline_list"> 
-                                    <li><span class="glyphicon glyphicon-envelope"></span> FEEDBACK</li>
+                                    <li><button type="button" class="search" data-toggle="modal" data-target="#feedback"<span class="glyphicon glyphicon-envelope"></span> FEEDBACK</button></li>
                                     <li><button type="button" class="search" data-toggle="modal" data-target="#aboutus"><span class="glyphicon glyphicon-info-sign"></span> ABOUT US</button></li>
                                     <li><button type="button" class="search" data-toggle="modal" data-target="#contactus"><span class="glyphicon glyphicon-phone-alt"></span> CONTACT</button></li>
                                     
@@ -154,7 +158,7 @@
 	        	<h4 class="modal-title">About Us</h4>
 	     	   </div>
 	     	   <div class="modal-body">
-	       		 <p>about us.</p>
+	       		 <p>BatteredBooks.com is a website to enable sale of second-hand books. VIT students can only register and use the site. Each book uploaded in our database is owned by a student who wants to get rid of that book. Kindly compare prices, more than one person may have uploaded the smae book under different price. Each student can upload a maximum of 5 books for sale. Please take down the book after the book is sold.</p>
  	     	   </div>
  	     	   
 	    	</div>
@@ -171,7 +175,15 @@
 	        	<h4 class="modal-title">Contact Us</h4>
 	     	   </div>
 	     	   <div class="modal-body">
-	       		 <p>about us.</p>
+	       		 <p>
+	       		 	<pre>
+  This site is maintained ||  VIT University-Chennai Campus
+  by students of VIT	  ||  Vandalur-Kelambakkam Road
+  Chennai.                ||  Tamil Nadu
+	       		  ||  600127
+	       		  ||	
+	       		  ||  Mob: 7550987126
+	       		 </p>
  	     	   </div>
  	     	   
 	    	</div>
@@ -179,6 +191,42 @@
 	   </div>
 	</div>
   
+        <!--FEEDBACK modal-->
+        <div id="feedback" class="modal fade" role="dialog" tabindex="-1">
+	   <div id="login_modal" class="modal-dialog">
+   	      	<div class="modal-content">
+ 	    	   <div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        	<h4 class="modal-title">PLease give us your feedback <small>(*You will be sent a copy of the feedback)</small></h4>
+	     	   </div>
+	     	   <div class="modal-body">
+	       		 <form name="feed" id="feed" method="post" action="feed.php">
+	       		 	<table border=0>
+	       		 		<tr>
+	       		 			<td>Username:</td>
+	       		 			<td>'<%= Session("CUR_USR").ToString%>'</td>
+	       		 		</tr>
+	       		 		<tr>
+	       		 			<td>Subject:</td>
+	       		 			<td><input type="text" required name="sub" ></td>
+	       		 		</tr>
+	       		 		<tr>
+	       		 			<td>Your feedback:</td>
+	       		 			<td><textarea name="f" rows="7" cols="40" required></textarea></td>
+	       		 		</tr>
+	       		 		<tr>
+	       		 			<td><input type="submit" value="Send"></td>
+				     		<td><input type="reset" value="Reset"></td>
+	       		 		</tr>
+	       		 	</table>
+	       		 </form>
+ 	     	   </div>
+ 	     	   
+	    	</div>
+
+	   </div>
+	</div>
+        
         
         <!--   <script src="./js/bootstrap.js"></script> --> <!--use either bootsrap.js or bootstrap.min.js..modal was disappearing-->
     <script src="./js/bootstrap.min.js"></script>

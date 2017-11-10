@@ -5,7 +5,7 @@
 <html>
   <head>
     
-    <title>Upload_BatteredBooks</title>
+    <title>Profile_BatteredBooks</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,9 +46,9 @@
   						  <li><a id="logout" href="logout.php"><span class="glyphicon glyphicon-log-out">&nbsp;Logout</span></a></li>
  						 </ul>	
                                         </ul>
-                                       <form class="navbar-form navbar-right search" name="book_search" method="post" action="search.php">
+                                       <form class="navbar-form navbar-right search" name="book_search" method="post" action="">
      					    <div class="form-group">
-      					    	<input type="text" name="ISBN" maxlength=13 class="form-control search" placeholder="Search by ">
+      					    	<input type="text" name="ISBN" maxlength=13 class="form-control search" placeholder="Search by ISBN">
      					    </div>
     					    <button type="submit" class="btn navbar-btn search" value="" ><span class="glyphicon glyphicon-search"></span></button>
  					</form>
@@ -62,14 +62,34 @@
 
             </div>
         </header> <!--End of header -->
+  
+  <?php
+   $connect= mysqli_connect("localhost","root","crack19","BATBOOKS");
+if(!$connect)
+	echo "Can't connect to database".mysqli_error();
+$x=$_SESSION["CUR_USR"];
+$q="select EID,ROOM,BLOCK,PWD from USER where USR='$x'";
+$sql=mysqli_query($connect,$q);
+$c=0;
+while($row=mysqli_fetch_assoc($sql))
+  {
+     $c=1;
+     
+     $v2=$row['EID'];
+     $v3=$row['ROOM'];
+     $v4=$row['BLOCK'];
+     $v5=$row['PWD'];
+   }  
+ mysqli_close($connect);
+  ?>
       
-      <section id="home_upload" class="home_upload"> <!--home secton-->
+      <section id="home_profile" class="home_profile"> <!--home secton-->
             <div class="home-overlay-fluid">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div id="" class="browse_register single_slider" >
-                            	<p>Upload details of the book</p>
+                            	<p>Your profile</p>
                             </div>
                         </div>
                     </div>
@@ -77,75 +97,60 @@
                         <div class="col-md-12">
                             <div id="" class="browse_register single_slider" style="border-bottom:0px;">
                                 
-                            	<form id="upload_form" name="upload_form" method="post" action="">
+                            	<form id="edit_profile" name="edit_profile" method="post" action="editProfile.php">
                             	    <table border=0 style="">
                             	  
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
-					     <td>Book Title: </td>
+					     <td>Username: </td>
 					     <td>&nbsp;</td>
-					     <td><input type="text" data-toggle="tooltip" data-placement="right" title="Enter full book title" name="TITLE" value="" placeholder="Enter title" style="color:black;font-weight:normal;font-style:italic;" required> </td>
+					     <td><?php echo $x;?></td>
 					  </tr>
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
-					     <td>Author: </td>
+					     <td>Password: </td>
 					     <td>&nbsp;</td>
-					     <td ><input type="text" data-toggle="tooltip" title="Enter name of author as printed on book" data-placement="right" name="AUT" value="" placeholder="Enter Author " style="color:black;font-weight:normal;font-style:italic;" required>
+					     <td ><input type="password" data-toggle="tooltip" title="Min 6 & Max 16 characters,space not allowed" data-placement="right" name="PWD" value="" minlength="6" maxlength="16" placeholder="" style="color:black;font-weight:normal;font-style:italic;" required>
 					     </td>
 					  </tr>
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
-					     <td>ISBN: </td>
+					     <td>Email Id: </td>
 					     <td>&nbsp;</td>
-					     <td ><input type="text" name="ISBN" value="" maxlength="13" data-toggle="tooltip" title="Enter valid 13-length ISBN " data-placement="right" placeholder="Enter ISBN-13" style="color:black;font-weight:normal;font-style:italic;" required>
+					     <td ><input type="email" data-toggle="tooltip" title="Id will be used for any communication" data-placement="right" name="EID" value="" placeholder="<?php echo $v2;?>" style="color:black;font-weight:normal;font-style:italic;" required>
 					     </td>
 					  </tr>
 					  <tr><td>&nbsp;</td></tr>
 					  <tr>
-					     <td>Category: </td>
+					     <td>Room No.: </td>
 					     <td>&nbsp;</td>
-					     <td >
-					     <table border=0>
-					     <tr><td>
-					     <input type="radio" name="CAT" value="Applied Sciences" style="color:black;font-weight:normal;font-style:italic;" required>Applied Sciences&nbsp;</td><td>
-					     <input type="radio" name="CAT" value="Computer Science" style="color:black;font-weight:normal;font-style:italic;" required>Computer Science&nbsp;</td><td>
-					     <input type="radio" name="CAT" value="Electrical" style="color:black;font-weight:normal;font-style:italic;" required>Electrical</td>      </tr>
-					     <tr><td>
-					     <input type="radio" name="CAT" value="Mechanical" style="color:black;font-weight:normal;font-style:italic;" required>Mechanical</td><td>
-					     <input type="radio" name="CAT" value="Civil" style="color:black;font-weight:normal;font-style:italic;" required>Civil</td><td>
-					     <input type="radio" name="CAT" value="Other" style="color:black;font-weight:normal;font-style:italic;" required>Other</td>
-					     </tr>
-					     </table>
-					  </tr>
-					  <tr><td>&nbsp;</td></tr>
-					  <tr>
-					     <td>Original Cost Price (in RS): </td>
-					     <td>&nbsp;</td>
-					     <td ><input type="text" title="Give the current market price, edition etc." data-toggle="tooltip" data-placement="right" name="CP" value="" placeholder="Enter price" style="color:black;font-weight:normal;font-style:italic;" required>
+					     <td ><input type="number" name="ROOM" value="" placeholder="<?php echo $v3;?>" min="101" max="1550"  style="color:black;font-weight:normal;font-style:italic;" required>
 					     </td>
 					  </tr>
-					  <tr><td>&nbsp;</td></tr>
-					  <tr>
-					     <td>Resale Price (in Rs): </td>
-					     <td>&nbsp;</td>
-					     <td ><input type="text" title="Tip: Keep the price as less than original price as possible for more chances of sale" data-toggle="tooltip" data-placement="right" name="SP" value="" placeholder="Enter price" style="color:black;font-weight:normal;font-style:italic;" required>
-					     </td>
-					  </tr>
-					  <tr><td>&nbsp;</td></tr>
 					  
+					  <tr><td>&nbsp;</td></tr>
 					  <tr>
-					     <td>How old is the book? </td>
+					     <td>Block: </td>
 					     <td>&nbsp;</td>
-					     <td ><input type="text" name="AGE" title="Tip: GIve in terms of months,days,years. P.S. This message will as it is be displayed to customers " data-toggle="tooltip" data-placement="right" value="" placeholder="Enter age of book" style="color:black;font-weight:normal;font-style:italic;" required>
+					     <td ><input type="radio" name="BLOCK" value="A" style="color:black;font-weight:normal;font-style:italic;" selected="<?php echo $v4;?>" required>A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					     <input type="radio" name="BLOCK" value="B (Boys)" style="color:black;font-weight:normal;font-style:italic;" required>B (Boys) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					     <input type="radio" name="BLOCK" value="B (Girls)" style="color:black;font-weight:normal;font-style:italic;" required>B (Girls)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					     <input type="radio" name="BLOCK" value="C" style="color:black;font-weight:normal;font-style:italic;" required>C
 					     </td>
 					  </tr>
+					  
 					  <tr><td>&nbsp;</td></tr>
-					  <tr><td>&nbsp;</td></tr>
-					  <tr><td><input type="submit" id="upload" class="search" value="Upload" style="color:#e84c3d;"></td>
+					  <tr><td><input type="submit" id="reg" class="search" value="Save changes" style="color:#e84c3d;"></td>
 					      <td><input type="reset" class="search" value="Reset" style="color:#e84c3d;"></td>	
-					      <td id="upload_error" style="font-family:arial;color:red;font-style:italic;"></td>
+					      <td id="error_register" style="font-family:arial;color:red;font-style:italic;"></td>
 					  </tr>
+					  
 		                    </table>
+		                    <br> 
+		                    <fieldset>
+		                    <legend align="left" border="1px solid grey">Caution: This action cannot be reversed. </legend>
+ 					<a href="delete.php">Delete Account</a>
+ 				    </fieldset>
                             	</form>
                             	
                             </div>

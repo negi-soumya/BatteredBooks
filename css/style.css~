@@ -377,9 +377,21 @@ ul#inline_list  li>a{
     background: url(../images/shelf.jpg)  100% 100%;
     text-align: center;
 }
+.home_CAT{
+    background: url(../images/space.jpg)  100% 100%;
+    text-align: center;
+}
+.home_search{
+    background: url(../images/grass.jpg) 100% 100%;
+    text-align: center;
+}
+.home_{
+    background: url(../images/coffee.jpg)  100% 100%;
+    text-align: center;
+}
 
 .home_profile{
-    background: url(../images/couch.jpg)  no-repeat 100% 100%;
+    background: url(../images/couch.jpg)  100% 100%;
     text-align: center;
 }
 
@@ -508,4 +520,7 @@ ul#inline_list  li>a{
  	font-weight:normal;
  	font-family:arial;
  	font-style:italic;
+}
+.white{
+	color:white;
 }
